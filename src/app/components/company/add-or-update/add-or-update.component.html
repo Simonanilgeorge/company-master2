@@ -1,5 +1,5 @@
-<!-- <p-toast></p-toast>
-<p-toast position="top-left" key="tl"></p-toast> -->
+<p-toast></p-toast>
+
 
 <div class="p-fluid">
 
@@ -141,6 +141,8 @@
 
     </div>
 
+
+
     <div *ngIf="company.yrSDt>company.yrEDt;">
         <div>
 
@@ -149,28 +151,20 @@
 
     </div>
     <div *ngIf="updatable; else addButton">
-        <button pButton pRipple label="Update" icon="pi pi-check" class="p-button-text" (click)="updateCompany()"
+        <button pButton pRipple label="Update" class="p-button-success" (click)="updateCompany()"
             style="width:100px;"></button>
 
 
     </div>
     <ng-template #addButton>
-     
-        <button pButton pRipple label="Add" icon="pi pi-check" class="p-button-text" (click)="addNewCompany()" (click)="showSuccess()" 
+
+        <button pButton pRipple label="Add" class="p-button-success" (click)="addNewCompany()"
             style="width:100px;"></button>
-  
+
     </ng-template>
     <div *ngIf="warning">
         <p style="color:red;">*Please enter all the required fields</p>
     </div>
 
-
-    <div *ngIf="addSuccessMessage">
-        <p style="color:green;">New Company added!</p>
-    </div>
-
-    <div *ngIf="updateSuccessMessage">
-        <p style="color:green;">Company Updated!</p>
-    </div>
-
 </div>
+

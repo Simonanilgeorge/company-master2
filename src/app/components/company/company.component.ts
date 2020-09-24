@@ -11,7 +11,7 @@ export class CompanyComponent implements OnInit {
 
 
   public companies: CompanyDto[];
-  company: CompanyDto = new CompanyDto();
+  company: CompanyDto = new CompanyDto()
 
   constructor(private CompanyService: CompanyService) { }
 
@@ -31,14 +31,11 @@ export class CompanyComponent implements OnInit {
 
 
     //function to remove company 
-    this.companies = this.companies.filter(function (company)
-    {
-      if (company.coCode !== code)
-      {
+    this.companies = this.companies.filter(function (company) {
+      if (company.coCode !== code) {
         return true;
       }
-      else 
-      {
+      else {
         return false;
       }
     })
@@ -51,8 +48,5 @@ export class CompanyComponent implements OnInit {
         });
 
   }
-
-
-
 
 }

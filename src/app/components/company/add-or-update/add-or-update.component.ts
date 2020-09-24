@@ -3,11 +3,13 @@ import { CompanyDto } from '../../../dto/company.dto';
 import { CompanyService } from '../../../providers/company.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
-// import { MessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-add-or-update',
   templateUrl: './add-or-update.component.html',
-  styleUrls: ['./add-or-update.component.css']
+  styleUrls: ['./add-or-update.component.css'],
+  providers: [MessageService]
 })
 export class AddOrUpdateComponent implements OnInit {
 
@@ -15,11 +17,12 @@ export class AddOrUpdateComponent implements OnInit {
 
   warning: boolean = false;
   updatable: boolean = false;
-  addSuccessMessage: boolean = false;
-  updateSuccessMessage: boolean = false;
-  constructor(private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe ) { }
+  // addSuccessMessage: boolean = false;
+  // updateSuccessMessage: boolean = false;
+  constructor(private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
     this.getSingleCompany();
   }
 
@@ -62,12 +65,14 @@ export class AddOrUpdateComponent implements OnInit {
       if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
 
-      
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
+
+
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
-      this.addSuccessMessage = true;
-      setTimeout(() => {
-        this.addSuccessMessage = false;
-      }, 2000)
+      // this.addSuccessMessage = true;
+      // setTimeout(() => {
+      //   this.addSuccessMessage = false;
+      // }, 2000)
 
       this.warning = false;
       this.CompanyService.addNewCompany(this.company)
@@ -89,13 +94,16 @@ export class AddOrUpdateComponent implements OnInit {
     else {
 
       this.warning = false;
-      this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd'));
-      this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd'));
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company updated' });
+
+      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+      if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
+
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
-      this.updateSuccessMessage = true;
-      setTimeout(() => {
-        this.updateSuccessMessage = false;
-      }, 2000)
+      // this.updateSuccessMessage = true;
+      // setTimeout(() => {
+      //   this.updateSuccessMessage = false;
+      // }, 2000)
 
 
       this.CompanyService.updateCompany(this.company.coCode, this.company)
@@ -110,8 +118,6 @@ export class AddOrUpdateComponent implements OnInit {
   }
 
 
-//   showSuccess() {
-//     this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
-// }
+
 
 }
