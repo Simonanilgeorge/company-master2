@@ -31,22 +31,18 @@ private company_url=`${environment.base_url}/ico`;
   }
 
 
-  // async getData(): Promise<IccountryDto[]> {
-  //   return this.http.get<IccountryDto[]>(`${environment.apiUrl}/${'country'}`).toPromise();
-  // }
-
   async addNewCompany(newCompany):Promise<CompanyDto>{
    return this.http.post<CompanyDto>(this.company_url,newCompany,this.httpOptions).toPromise(); 
   }
 
-  getSingleCompany(code):Promise<CompanyDto>{
+  async getSingleCompany(code):Promise<CompanyDto>{
 
 
     return this.http.get<CompanyDto>(`${this.company_url}/${code}`).toPromise();
 
   }
 
-  updateCompany(code,updatedCompany):Promise<CompanyDto>{
+  async updateCompany(code,updatedCompany):Promise<CompanyDto>{
     return this.http.put<CompanyDto>(`${this.company_url}/${code}`,updatedCompany,this.httpOptions).toPromise();
   }
 

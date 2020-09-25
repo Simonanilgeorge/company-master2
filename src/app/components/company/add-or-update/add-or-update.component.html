@@ -151,20 +151,17 @@
 
     </div>
     <div *ngIf="updatable; else addButton">
-        <button pButton pRipple label="Update" class="p-button-success" (click)="updateCompany()"
+        <button pButton pRipple label="Update" class="p-button-success" (click)="addOrUpdateCompany()"
             style="width:100px;"></button>
 
 
     </div>
     <ng-template #addButton>
 
-        <button pButton pRipple label="Add" class="p-button-success" (click)="addNewCompany()"
+        <button pButton pRipple label="Add" class="p-button-success" (click)="addOrUpdateCompany()"
             style="width:100px;"></button>
 
     </ng-template>
-    <div *ngIf="warning">
-        <p style="color:red;">*Please enter all the required fields</p>
-    </div>
+
 
 </div>
-
