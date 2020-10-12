@@ -67,43 +67,50 @@ export class AddOrUpdateComponent implements OnInit {
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
         this.updateMandatory = false;
-      } else {
-        this.updateMandatory = true;
+        return;
       }
+      //  else {
+      //   this.updateMandatory = true;
+      // }
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
         this.updateMandatory = false;
+        return;
 
-      } else {
-        this.updateMandatory = true;
-      }
+      } 
+      // else {
+      //   this.updateMandatory = true;
+      // }
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
         this.updateMandatory = false;
-      } else {
-        this.updateMandatory = true;
-      }
+        return;
+      } 
+      // else {
+      //   this.updateMandatory = true;
+      // }
 
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
         this.updateMandatory = false;
-
-      } else {
-        this.updateMandatory = true;
+        return;
       }
+      //  else {
+      //   this.updateMandatory = true;
+      // }
 
 
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
         this.updateMandatory = false;
-
+        return;
       }
-      else {
-        this.updateMandatory = true;
-      }
+      // else {
+      //   this.updateMandatory = true;
+      // }
 
-      if (this.updateMandatory) {
+      // if (this.updateMandatory) {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company Updated' });
 
         if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
@@ -120,7 +127,7 @@ export class AddOrUpdateComponent implements OnInit {
             console.log(`error`);
           })
 
-      }
+      // }
 
     }
 
