@@ -1,7 +1,7 @@
 <p-toast></p-toast>
 
-
-<div class="p-fluid">
+<div class="container">
+<div class="p-fluid " style="width:800px" >
 
 
     <div *ngIf="updatable; else elseBlock">
@@ -11,16 +11,16 @@
         <h1 style="text-align: center;">Add Company</h1>
     </ng-template>
 
-    <div class="p-field">
-        <label for="company code">Company Code *required (max 2 characters) :</label><input id="company code"
-            [(ngModel)]="company.coCode" type="text" maxlength="2" required pInputText>
+    <div class="p-field ">
+        <label for="company code">Company Code *required (max 2 characters) :</label><br><input id="company code"
+            [(ngModel)]="company.coCode" type="text" maxlength="2" required style="width:392px" pInputText>
     </div>
 
 
 
-    <div class="p-fluid p-formgrid p-grid">
+    <div class="p-fluid p-formgrid p-grid ">
 
-        <div class="p-field p-col">
+        <div class="p-field p-col ">
             <label for="company name">Company Name *required : </label><input id="company name"
                 [(ngModel)]="company.coName" type="text" required pInputText class="p-mr-2">
         </div>
@@ -61,8 +61,8 @@
     </div>
 
     <div class="p-field">
-        <label for="primarylanguage">Primary language</label><input id="primarylanguage"
-            [(ngModel)]="company.primaryLangauge" maxlength="200" type="text" maxlength="2" pInputText>
+        <label for="primarylanguage">Primary language</label><br><input id="primarylanguage"
+            [(ngModel)]="company.primaryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText>
     </div>
 
     <div *ngIf="company.multiLanguageYn === 'Y'">
@@ -72,8 +72,8 @@
 
 
             <div class="p-field p-col">
-                <label for="secondarylanguage">Secondary language</label><input id="secondarylanguage"
-                    [(ngModel)]="company.secondryLangauge" maxlength="200" type="text" maxlength="2" pInputText>
+                <label for="secondarylanguage">Secondary language</label><br><input id="secondarylanguage"
+                    [(ngModel)]="company.secondryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText>
             </div>
 
         </div>
@@ -164,4 +164,5 @@
     </ng-template>
 
 
+</div>
 </div>
