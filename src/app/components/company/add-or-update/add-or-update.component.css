@@ -1,4 +1,38 @@
 .container{
     display: flex;
     justify-content: center;
+    padding:20px 20px;
+    margin:10px;
+}
+
+.pcontainer
+{
+  
+    margin:100px;
+    display: flex;
+    justify-content: center;
+
+}
+h1{
+    /* border: 1px solid black; */
+    height:100px;
+    padding:20px 20px;
+}
+
+.p-field{
+    /* border:1px solid black; */
+    height:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+.dropdown{
+/* border:1px solid black; */
+    width:250px;
+
+
+
 }

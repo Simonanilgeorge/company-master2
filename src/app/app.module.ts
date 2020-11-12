@@ -26,7 +26,7 @@ import {RippleModule} from 'primeng/ripple';
 // import { AddOrUpdateComponent } from './components/company/add-or-update/add-or-update.component';
 import { DatePipe } from '@angular/common';
 import { AppRoutingModule,routingComponents} from './app-routing.module';
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { AppRoutingModule,routingComponents} from './app-routing.module';
     ToolbarModule,
     HttpClientModule,
     AppRoutingModule,
-    ToastModule
+    ToastModule,
+    ConfirmDialogModule 
     
   ],
   providers: [DatePipe],
